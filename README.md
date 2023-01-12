@@ -1,7 +1,8 @@
-## My Ansible-Playbook collection,
+# My Ansible-playbooks,
 
-Welcome,
+### Welcome,
 In this Github repo I will be storing my Ansible-Playbooks.
+you can use them for inspiration or just ignore them have fun!
+<br/>
 
-Feel free to check them out and maybe get inspired by then (or not)
 Have a nice day!
