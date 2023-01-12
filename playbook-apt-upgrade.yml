@@ -1,0 +1,13 @@
+---
+
+  - name: DC-wide APT upgrade
+    hosts: SH-DC-01
+    become: yes
+    become_method: sudo
+    tasks:
+      - name: apt update
+        apt:
+          update_cache: yes
+          upgrade: safe
+
+#   Simple DC-Wide apt update && upgrade 

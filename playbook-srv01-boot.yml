@@ -1,0 +1,25 @@
+---
+
+  - name: Boot playbook [SH-SRV-01]
+    hosts: SH-SRV-01
+    become: yes
+    become_method: sudo
+    tasks:
+      - name: Mount Drive= storage
+        ansible.builtin.shell: mount /dev/sdb/sdb1 /mnt/storage
+
+      - name: Mount Drive= 500GB
+        ansible.builtin.shell: mount /dev/sdc /mnt/500GB
+
+      - name: Mount Drive= BackupSSD
+        ansible.builtin.shell: mount /dev/sdd /mnt/BackupSSD
+
+      - name: Enable Wake on Lan on enp3s0
+        ansible.builtin.shell: ethtool -s enp3s0 wol g
+
+
+
+#   To implement:
+#   Quit NGINX & dnsmasq to clear Ports: 80(HTTP), 443(HTTPS) & 53(DNS) ports are needed by Adguard, Npm, and other services.
+#   Start Containers that could not be started on n boot because of the above ports being used.
+#   containers that wont start on boot: npm, Adguard, Homepage

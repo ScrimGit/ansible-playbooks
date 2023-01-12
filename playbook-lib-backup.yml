@@ -1,0 +1,20 @@
+---
+
+  - name: SSD Library backup [SH-SRV-01]
+    hosts: SH-SRV-01
+    become: yes
+    become_method: sudo
+    tasks:
+      - name: Backup dockerlibs
+        ansible.builtin.copy:
+          src: /dockerlibs
+          dest: /mnt/BackupSSD/dockerlibs-backup/
+          mode: '0644'
+      - name: Backup ansiblelibs
+        ansible.builtin.copy:
+          src: /ansiblelibs
+          dest: /mnt/BackupSSD/ansiblelibs-backup/
+          mode: '0644'
+
+#   Copy /ansiblelibs & /dockerlibs to the Backup SSD as a backup,
+#   add more Library's when needed (Important Data Only)
